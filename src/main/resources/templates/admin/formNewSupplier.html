@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siw Catalog - New Supplier</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/formNewSupplier.css">
+</head>
+<body>
+    <nav>
+        <h1><a href="/" id="siw-nav-title">SIWCATALOG</a></h1>
+        <h2>Admin - New Supplier</h2>
+        <a href="/logout" class="log">LOG OUT</a>
+    </nav>
+    <form th:action="@{/admin/supplier}" method="post" enctype="multipart/form-data" th:object="${supplier}">
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+        </div>
+        <div>
+            <label>Name: </label>
+            <span><input type="text" th:field="${supplier.name}" placeholder="Name"></span>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" >...</span>
+        </div>
+        <div>
+            <label>Surname: </label>
+            <span><input required type="text" th:field="${supplier.surname}" placeholder="Surname"></span>
+            <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" >...</span>
+        </div>
+        <div>
+            <label>PIVA: </label>
+            <span><input required type="text" th:field="${supplier.iva}" placeholder="iva"></span>
+            <span th:if="${#fields.hasErrors('iva')}" th:errors="*{iva}" >...</span>
+        </div>
+<!---        <div>
+            <label>Date of birth: </label>
+            <span><input required type="date" th:field="${artist.birthDate}"></span>
+            <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" >...</span>
+        </div>
+        <div>
+            <label>Date of death <span>(Optional)</span>: </label>
+            <span><input type="date" th:field="${artist.deathDate}"></span>
+            <span th:if="${#fields.hasErrors('deathDate')}" th:errors="*{deathDate}" >...</span>
+        </div>
+        <div>
+            <label>Artist Picture:</label>
+            <span><input required type="file" name="file"></span>
+        </div>
+-->
+        <div>
+            <span><button type="submit">Confirm</button></span>
+        </div>
+    </form>
+</body>
+</html>

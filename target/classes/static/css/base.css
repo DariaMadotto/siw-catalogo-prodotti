@@ -1,0 +1,20 @@
+:root{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --jet-black: #2A2A2A;
+    --cream: #efe9e7;
+    --lavander: #dae0f2;
+    --purple: #52154e;
+    --bluenavy: #111344;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    color: var(--jet-black);
+}
+
+body{
+	/*background-image: url("/images/sfondo_sito.jpg");*/
+    background-color: var(--lavander);
+}
+

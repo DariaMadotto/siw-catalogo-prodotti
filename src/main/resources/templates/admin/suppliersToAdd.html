@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siw Catalog - Set Suppliers</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+	<link rel="stylesheet" href="/css/suppliersToAdd.css">
+</head>
+<body>
+	<nav>
+        <h1><a href="/" id="siw-nav-title">SIWCATALOG</a></h1>
+        <h2>Admin - Add Supplier</h2>
+        <a href="/logout" class="log">LOG OUT</a>
+    </nav>
+
+
+	<div class="container">
+		<h1 th:text="'Suppliers management for: ' + ${product.name} + ' (' + ${product.code} + ')'"></h1>
+		<div>
+
+			
+			<div th:if="${product.suppliers.isEmpty()}">No Suppliers for this product</div>
+			<ul th:unless="${product.suppliers.isEmpty()}">
+				<li th:each="supplier : ${product.suppliers}">
+					<span th:text="${supplier.name}+' '+${supplier.surname}"></span>
+					<a th:href="@{'/admin/removeSupplierFromProduct/'+ ${supplier.id}+'/'+${product.id}}">Remove</a>
+				</li>
+			</ul>
+			<div>
+				Suppliers not providing for this product:
+				<ul>
+					<li th:each="supplier : ${suppliersToAdd}">
+						<span th:text="${supplier.name}+' '+${supplier.surname}"></span>
+						<a th:href="@{'/admin/addSupplierToProduct/'+ ${supplier.id}+'/'+${product.id}}">Add</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		<a th:href="@{'/admin/formUpdateProduct/'+ ${product.id}}"><button type="button">END SUPPLIERS EDITING</button></a>
+</body>
+</html>

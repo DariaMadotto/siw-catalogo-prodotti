@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siw Catalog - Manage Products</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/manageProducts.css">
+</head>
+<body>
+  <nav>
+    <h1><a href="/" id="siw-nav-title">SIWCATALOG</a></h1>
+    <h2>Admin - Manage Products</h2>
+    <a href="/logout" class="log">LOG OUT</a>
+  </nav>
+
+  <div th:if="${products.isEmpty()}">
+    No products currently in the database
+  </div>
+  <div th:unless="${products.isEmpty()}" class="products">
+    <h1>Products:</h1>
+    <div class="product-list">
+      <div class="product" th:each="product : ${products}">
+        <a th:href="@{'/admin/formUpdateProduct/' + ${product.id}}" th:text="${product.name} + ' (' + ${product.code} + ')'">Pasta (1234)</a>
+      </li>
+       </div>    <!--boh-->
+    </div>
+  </div>
+</body>
+</html>

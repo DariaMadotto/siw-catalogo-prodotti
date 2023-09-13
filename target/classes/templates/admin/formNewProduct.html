@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siw Catalog - New Product</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/formNewProduct.css">
+</head>
+<body>
+    <nav>
+        <h1><a href="/" id="siw-nav-title">SIWCATALOG</a></h1>
+        <h2>Admin - Add Product</h2>
+        <a href="/logout" class="log">LOG OUT</a>
+    </nav>
+
+
+    <form th:action="@{/admin/uploadProduct}" method="post" enctype="multipart/form-data" th:object="${product}">
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+        </div>
+        <div>
+            <label>Product's name:</label>
+            <span><input type="text" placeholder="Product name" th:field="${product.name}"></span>
+        </div>
+        <div>
+            <label>Product's code:</label>
+            <span><input required type="text" placeholder="Product code" th:field="${product.code}"></span>
+        </div>
+		 <div>
+            <label>Product's price:</label>
+            <span><input required type="number" placeholder="Product price" th:field="${product.price}"></span>
+        </div>
+
+        
+<!--        <div class="image">
+            <label>Movie Image:</label>
+            <input required type="file" name="file">
+        </div>
+-->
+        <div>
+            <span><button type="submit">Confirm</button></span>
+        </div>
+    </form>
+</body>
+</html>
