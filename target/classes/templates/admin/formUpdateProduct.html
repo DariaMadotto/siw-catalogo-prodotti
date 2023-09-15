@@ -17,17 +17,9 @@
   </nav>
   <div class="container">
     <h2 th:text="${'Product: ' + product.name + ' (' +product.code + ')'}"></h2>
-<!--    <div th:if="${movie.director == NULL}">
-      Director currently not set
-      <a th:href="@{'/admin/addDirector/' + ${movie.id}}"><button>SET DIRECTOR</button></a>
-    </div>
+	  <h4>Name: <a th:href="@{'/admin/editDetailsToProduct/' + ${product.id}}"><button>EDIT NAME</button></a></h4>
+      <h4>Price: <a th:href="@{'/admin/editDetailsToProduct/' + ${product.id}}"><button>EDIT PRICE</button></a></h4>
 
-    <div th:unless="${movie.director == NULL}">
-      <h4>Director:</h4>
-      <span th:text="${movie.director.name} + ' ' + ${movie.director.surname}">Mario Verdi</span>
-      <a th:href="@{'/admin/removeDirectorToMovie/' + ${movie.id}}"><button>REMOVE</button></a>
-    </div>
--->
     <div th:if="${product.suppliers == NULL or product.suppliers.isEmpty()}">
       No suppliers currently set
       <span><a th:href="@{'/admin/updateSuppliersOnProduct/' + ${product.id}}"><button>SET SUPPLIERS</button></a></span>
@@ -35,7 +27,7 @@
     <div th:unless="${product.suppliers == NULL or product.suppliers.isEmpty()}">
       <h4>Suppliers: <a th:href="@{'/admin/updateSuppliersOnProduct/' + ${product.id}}"><button>EDIT SUPPLIERS</button></a></h4>
       <ul>
-        <li th:each="supplier : ${product.suppliers}" th:text="${supplier.name} + ' ' + ${supplier.surname} + ' ' + ${supplier.iva}">    <!--+ ' (' + ${#temporals.format(actor.birthDate, 'dd-MM-yyyy')} +')'-->
+        <li th:each="supplier : ${product.suppliers}" th:text="${supplier.name} + ' ' + ${supplier.surname} + ' ' + ${supplier.iva}">   
           Mario Rossi 1234
         </li>
       </ul>

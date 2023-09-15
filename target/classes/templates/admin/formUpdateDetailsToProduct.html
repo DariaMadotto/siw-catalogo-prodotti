@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siw Catalog - New Product</title>
+    <title>Siw Catalog - Update Details To Product</title>
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/formNewProduct.css">
@@ -12,22 +12,18 @@
 <body>
     <nav>
         <h1><a href="/" id="siw-nav-title">SIWCATALOG</a></h1>
-        <h2>Admin - Add Product</h2>
+        <h2>Admin -  Product</h2>
         <a href="/logout" class="log">LOG OUT</a>
     </nav>
 
-
-    <form th:action="@{/admin/uploadProduct}" method="post" enctype="multipart/form-data" th:object="${product}">
+	<!--QUESTA DOVREBBE RIMANDARE CON TH:ACTION AL METODO NEL CONTROLLER CON QUELL'URL MAPPATO POST-->'
+    <form th:action="@{/admin/saveDetailsToProduct}" method="post" enctype="multipart/form-data" th:object="${product}">
         <div th:if="${#fields.hasGlobalErrors()}">
             <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
         </div>
         <div>
             <label>Product's name:</label>
             <span><input type="text" placeholder="Product name" th:field="${product.name}"></span>
-        </div>
-        <div>
-            <label>Product's code:</label>
-            <span><input required type="text" placeholder="Product code" th:field="${product.code}"></span>
         </div>
 		 <div>
             <label>Product's price:</label>

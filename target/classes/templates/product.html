@@ -19,26 +19,13 @@
     <!-- PRODUCT PAGE -->
 
     <div th:if="${product}" class="full-container">
-        <div id="product-info">
-            <!--<img th:if="${image}" th:src="@{'data:image/*;base64,'+${image.base64Image}}" id="movie-pic">-->
-            
+        <div id="product-info">            
             <div>
                 <h1 id="product-name" th:text="${product.name} + ' (' + ${product.code} + ')' ">Pasta (1234)</h1>
                 <div class="product-cast">
-
-                    <!--<div th:if="${movie.director}" id="director">
-                        <h4>Director:</h4>
-                        <a th:href="@{'/artist/' +${movie.director.id}}">
-                            // <div class="img-inner"><img th:if="${movie.director.profilePicture}" th:src="@{'data:image/*;base64,'+${movie.director.profilePicture.base64Image}}" alt="Actor image"></div> -->
-                           <!-- <span th:text="${movie.director.name} + ' ' + ${movie.director.surname}">Mario Rossi</span>
-                        </a>
-                    </div>
-                    -->
-
                     <div th:if="${not #lists.isEmpty(product.suppliers)}" id="suppliers">
                         <h4>Suppliers:</h4>
                         <a th:each="supplier : ${product.suppliers}" th:href="@{'/supplier/' +${supplier.id}}">
-                            <!-- <div class="img-inner"><img th:if="${actor.profilePicture}" th:src="@{'data:image/*;base64,'+${actor.profilePicture.base64Image}}" alt="Actor image"></div>-->
                             <span th:text="${supplier.name} + ' ' + ${supplier.surname}"> Mario Rossi</span>
                         </a>
                     </div>
