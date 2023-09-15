@@ -43,6 +43,22 @@ public class ProductService {
     	this.productRepository.save(product);
     }
     
+    //cambia i dettagli del prodotto,come prezzo, nome
+    @Transactional
+    public void editDetailsToProduct(Product product) {
+        // Recupera il prodotto esistente dal repository utilizzando l'ID
+        Product existingProduct = productRepository.findById(product.getId()).orElse(null);
+
+        if (existingProduct != null) {
+            // Aggiorna i dettagli del prodotto con i nuovi valori
+            existingProduct.setName(product.getName());
+            existingProduct.setPrice(product.getPrice());
+
+            // Salva le modifiche nel repository
+            productRepository.save(existingProduct);
+        }
+    }
+    
     @Transactional
     public void setSupplierToProduct(Product product, Long productId) {
         Supplier supplier = this.supplierRepository.findById(productId).get();

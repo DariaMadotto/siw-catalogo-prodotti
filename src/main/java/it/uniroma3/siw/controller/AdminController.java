@@ -1,6 +1,5 @@
 package it.uniroma3.siw.controller;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,8 +28,6 @@ import jakarta.validation.Valid;
 @Controller
 public class AdminController {
 	
-//	 @Autowired
-//	 private ImageRepository imageRepository;
 	 @Autowired
 	 private ProductRepository productRepository;
 	 @Autowired
@@ -51,12 +48,11 @@ public class AdminController {
 	 }
 	 
 	 @PostMapping("/admin/uploadProduct")
-	 public String newProduct(Model model, @Valid @ModelAttribute("product") Product product, BindingResult bindingResult){    //, @RequestParam("file") MultipartFile image)   throws IOException   
+	 public String newProduct(Model model, @Valid @ModelAttribute("product") Product product, BindingResult bindingResult){       
 		 this.productValidator.validate(product,bindingResult);
 		 if(!bindingResult.hasErrors()){
-			 this.productService.createProduct(product);  //, image)
+			 this.productService.createProduct(product);  
 			 model.addAttribute("product", product);
-//			 model.addAttribute("image", product.getImage());
 			 model.addAttribute("userDetails", this.userService.getUserDetails());
 			 return "product.html";
 		 } else {
@@ -71,16 +67,12 @@ public class AdminController {
 	    }
 	  
 	  @PostMapping("/admin/supplier")
-	    public String newSupplier(Model model,@Valid @ModelAttribute("supplier") Supplier supplier, BindingResult bindingResult) {  //, @RequestParam("file") MultipartFile image)  throws  IOException
+	    public String newSupplier(Model model,@Valid @ModelAttribute("supplier") Supplier supplier, BindingResult bindingResult) {  
 	        this.supplierValidator.validate(supplier, bindingResult);
 	        if(!bindingResult.hasErrors()){
-//	            Image pic = new Image(image.getBytes());
-//	            this.imageRepository.save(pic);
-//	            supplier.setProfilePicture(pic);
 	            this.supplierRepository.save(supplier);
 
 	            model.addAttribute("supplier", supplier);
-//	            model.addAttribute("profilePic", pic );
 	            model.addAttribute("userDetails", this.userService.getUserDetails());
 	            return "supplier.html";
 	        }
@@ -97,15 +89,37 @@ public class AdminController {
 	  
 
 	    @Transactional
-	    @GetMapping("/admin/formUpdateProduct/{id}")
+	    @GetMapping("/admin/formUpdateProduct/{id}")  //update generica, ora ci sono anche nome e prezzo
 	    public String formUpdateProduct(@PathVariable("id") Long id, Model model){
 	        model.addAttribute("product", this.productRepository.findById(id).get());
 	        return "/admin/formUpdateProduct.html";
 	    }
 	    
-//metodi director
+	    //aggiunta ora
+	    @Transactional
+	    @GetMapping("/admin/editDetailsToProduct/{id}")  //questa dovrebbe essere quella speculare a quella 1 per nome e prezzo
+	    public String editDetails(@PathVariable("id") Long id,Model model ){
+
+	        model.addAttribute("product", this.productRepository.findById(id).get());
+
+	        return "/admin/formUpdateDetailsToProduct.html";
+	    }
 	    
-	    //funzione ausiliaria
+	    //dovrebbe salvare il prodotto con i nuovi dettagli e ritornare alla pagina del prodotto modificato
+	    //RISOLVERE: NON RIMANDA ALLA PAGINA DEL PRODOTTO MODIFICATO MA FA IL DOWNLOAD DELLA PAGINA VUOTA
+	    @Transactional
+	    @PostMapping("/admin/saveDetailsToProduct/{id}") 
+	    public String editDetailsToProduct(Model model, @Valid @ModelAttribute("product") Product product, BindingResult bindingResult ){       
+			 this.productValidator.validate(product,bindingResult);
+			 if(!bindingResult.hasErrors()){
+				 this.productService.editDetailsToProduct(product);  
+				 model.addAttribute("product", product);
+				 return "product.html";
+			 }
+			 return "formUpdateDetailsToProduct.html";
+
+	    }
+	    
 	    @Transactional
 	    public Set<Supplier> suppliersToAdd(Long productId){
 	        Set<Supplier> suppliersToAdd= new HashSet<Supplier>();
@@ -114,7 +128,7 @@ public class AdminController {
 	    }
 	    
 	    @Transactional
-	    @GetMapping("/admin/updateSuppliersOnProduct/{id}")
+	    @GetMapping("/admin/updateSuppliersOnProduct/{id}")  //1 qui c'è la form dei supplier con suplier menagement
 	    public String updateSuppliers(@PathVariable("id") Long id,Model model ){
 
 	        Set<Supplier> suppliersToAdd = this.suppliersToAdd(id);
