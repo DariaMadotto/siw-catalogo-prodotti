@@ -21,7 +21,6 @@
     <div class="suppliers">
         <a class="card" th:each="supplier : ${suppliers}" th:href="@{'/supplier/' + ${supplier.id}}" >
             <div class="card_content">
-                <!--<img th:src="@{'data:image/*;base64,' + ${artist.getProfilePicture.base64Image}}" alt="artist picture">-->
                 <div class="card-text">
                     <div class="card-p" th:text="${supplier.name +' '+ supplier.surname +' '+ supplier.iva }">Mario Rossi 1234</div>
                 </div>

@@ -1,6 +1,5 @@
 package it.uniroma3.siw.controller.validator;
 
-import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,12 +27,6 @@ public class SupplierValidator implements Validator{
             && this.supplierRepository.existsByNameAndSurnameAndAddressAndEmailAndIva(supplier.getName(), supplier.getSurname(), supplier.getAddress(), supplier.getEmail(), supplier.getIva())){
             errors.reject("supplier.duplicate");
         }
-//        if(supplier.getBirthDate().isAfter(LocalDate.now())) errors.reject("artist.birthDate.future");
-//        if(supplier.getBirthDate().isBefore(LocalDate.of(1850, 1, 1))) errors.reject("artist.birthDate.past1850");
-//        if(supplier.getDeathDate()!= null){
-//            if(supplier.getDeathDate().isBefore(supplier.getBirthDate())) errors.reject("artist.deathDate.pastBirth");
-//            if(supplier.getDeathDate().isAfter(LocalDate.now())) errors.reject("artist.deathDate.future");
-//		}
 		
 	}
 

@@ -1,40 +1,39 @@
-.products{
+
+.products {
     margin: auto;
     display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: start;
-    flex-wrap: wrap;
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .card {
     margin: 1%;
-    width: 18%;
-    height: auto;
+    width: 100%; 
     aspect-ratio: 6/7;
     border-radius: 20px;
     padding: 5px;
     box-shadow: rgba(84, 58, 115, 0.2) 0 15px 30px -5px;
-    background-image: linear-gradient(144deg,var(--purple), var(--bluenavy));
+    background-image: linear-gradient(144deg, var(--colore-purple), var(--colore-bluenavy));
     z-index: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column; 
+    justify-content: space-between; 
     align-items: center;
     transition: 0.3s ease-in-out;
+    margin-bottom: 150px; 
 }
   
-.card_content{
+.card_content {
     border-radius: 15px;
-    width: 98%;
-    height: 93%;
+    width: 100%; 
     position: relative;
 }
 
-.card_content *{
-    color: var(--cream)
+.card_content * {
+    color: var(--colore-cream);
 }
 
-.card_content img{
+.card_content img {
     display: inline;
     width: 100%;
     height: 100%;
@@ -42,22 +41,25 @@
     border-radius: 15px;
 }
 
-.card-text{
+.card-text {
     position: absolute;
     top: 0%;
     left: 00%;
-    background: radial-gradient(var(--purple), rgba(214, 214, 214, 0) 86%);
+    background: radial-gradient(var(--colore-purple), rgba(214, 214, 214, 0) 86%);
     padding: 1rem;
     border-radius: 15px;
 }
 
-.card-p{
+
+.card-p {
     font-size: 1.4rem;
     font-weight: 600;
+    text-align: center; 
 }
 
-.card:hover{
-    box-shadow: 2px 2px 3px var(--bluenavy)
+
+.card:hover {
+    box-shadow: 2px 2px 3px var(--colore-bluenavy);
 }
 
 #suppliers {

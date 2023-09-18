@@ -1,10 +1,10 @@
 package it.uniroma3.siw.model;
 
 import java.util.Objects;
+
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -16,12 +16,12 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Product {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@NotBlank
-	@Column(nullable = false, unique = true)
 	private String code;
 	@NotBlank
 	private String name;
@@ -30,10 +30,10 @@ public class Product {
 	
 	private String description;
 
-	@ManyToMany(mappedBy = "products", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "products", fetch = FetchType.EAGER, cascade = CascadeType.ALL)  //CASCADE fa sì  che l'operazione viene fatta in cascata
 	private Set<Supplier> suppliers;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)  //EAGER caricati subito anche gli oggetti collegati
 	private Set<Review> reviews;
 
 	public Set<Review> getReviews() {
@@ -109,10 +109,5 @@ public class Product {
 		return Objects.equals(code, other.code) && Objects.equals(description, other.description)
 				&& Objects.equals(name, other.name) && Objects.equals(price, other.price);
 	}
-
-
-
-
-
 
 }

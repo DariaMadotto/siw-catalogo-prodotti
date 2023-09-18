@@ -95,9 +95,8 @@ public class AdminController {
 	        return "/admin/formUpdateProduct.html";
 	    }
 	    
-	    //aggiunta ora
 	    @Transactional
-	    @GetMapping("/admin/editDetailsToProduct/{id}")  //questa dovrebbe essere quella speculare a quella 1 per nome e prezzo
+	    @GetMapping("/admin/editDetailsToProduct/{id}")  
 	    public String editDetails(@PathVariable("id") Long id,Model model ){
 
 	        model.addAttribute("product", this.productRepository.findById(id).get());
@@ -105,20 +104,20 @@ public class AdminController {
 	        return "/admin/formUpdateDetailsToProduct.html";
 	    }
 	    
-	    //dovrebbe salvare il prodotto con i nuovi dettagli e ritornare alla pagina del prodotto modificato
-	    //RISOLVERE: NON RIMANDA ALLA PAGINA DEL PRODOTTO MODIFICATO MA FA IL DOWNLOAD DELLA PAGINA VUOTA
-	    @Transactional
-	    @PostMapping("/admin/saveDetailsToProduct/{id}") 
-	    public String editDetailsToProduct(Model model, @Valid @ModelAttribute("product") Product product, BindingResult bindingResult ){       
+	    
+	    @PostMapping("/admin/uploadProduct1/{id}")
+		 public String editDetailsToProduct(@PathVariable("id") Long id, Model model, @Valid @ModelAttribute("product") Product product, BindingResult bindingResult){       
 			 this.productValidator.validate(product,bindingResult);
 			 if(!bindingResult.hasErrors()){
-				 this.productService.editDetailsToProduct(product);  
 				 model.addAttribute("product", product);
-				 return "product.html";
-			 }
-			 return "formUpdateDetailsToProduct.html";
-
-	    }
+				 model.addAttribute("userDetails", this.userService.getUserDetails());
+				 this.productService.editDetailsToProduct(product); 
+				 return "/product";
+			 } 
+//				 return "/index.html";
+				 return "/admin/formUpdateDetailsToProduct.html";
+			 
+		 }
 	    
 	    @Transactional
 	    public Set<Supplier> suppliersToAdd(Long productId){
@@ -128,7 +127,7 @@ public class AdminController {
 	    }
 	    
 	    @Transactional
-	    @GetMapping("/admin/updateSuppliersOnProduct/{id}")  //1 qui c'è la form dei supplier con suplier menagement
+	    @GetMapping("/admin/updateSuppliersOnProduct/{id}")  
 	    public String updateSuppliers(@PathVariable("id") Long id,Model model ){
 
 	        Set<Supplier> suppliersToAdd = this.suppliersToAdd(id);

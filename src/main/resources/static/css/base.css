@@ -1,20 +1,91 @@
-:root{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --jet-black: #2A2A2A;
-    --cream: #efe9e7;
-    --lavander: #dae0f2;
-    --purple: #52154e;
-    --bluenavy: #111344;
+
+/* Stili per il CSS */
+:root {
+	 font-family: 'Dancing Script', cursive; 
+    --colore-sfondo: #fff6f6; /* Rosa chiaro per lo sfondo */
+    --colore-bordo: #a70572; /* Viola strano per il bordo */
+    --colore-input: #ffffff; /* Bianco per l'input */
+    --colore-pulsante-primario: #ff4081; /* Rosa acceso per il pulsante principale */
+    --colore-pulsante-secondario: #ff66a3; /* Rosa più chiaro per il pulsante secondario */
+    --colore-testo-pulsante: #fb93d3; /* Testo bianco per il pulsante */
+    --colore-testo: #2A2A2A; /* Colore del testo (jet black) */
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
-    color: var(--jet-black);
+    color: var(--colore-testo);
 }
 
-body{
-	/*background-image: url("/images/sfondo_sito.jpg");*/
-    background-color: var(--lavander);
+body {
+    background-color: var(--colore-sfondo);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    background-color: var(--colore-sfondo);
+    border: 2px solid var(--colore-bordo);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 1.1rem;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form > div {
+    margin: 10px;
+}
+
+p {
+    margin-top: 1.5rem;
+}
+
+input {
+    background-color: var(--colore-input);
+    border: 2px solid var(--colore-bordo);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 1.2rem;
+    margin: 0 15px;
+    box-shadow: 2px 2px 4px var(--colore-bordo);
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 15px 20px;
+    border-radius: 20px;
+    background-color: var(--colore-pulsante-primario);
+    transition: 0.3s ease-in-out;
+    width: 200px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--colore-testo-pulsante);
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.image input {
+    width: 100%;
 }
 

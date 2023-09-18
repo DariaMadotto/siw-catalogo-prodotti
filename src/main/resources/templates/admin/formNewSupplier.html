@@ -34,21 +34,6 @@
             <span><input required type="text" th:field="${supplier.iva}" placeholder="iva"></span>
             <span th:if="${#fields.hasErrors('iva')}" th:errors="*{iva}" >...</span>
         </div>
-<!---        <div>
-            <label>Date of birth: </label>
-            <span><input required type="date" th:field="${artist.birthDate}"></span>
-            <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" >...</span>
-        </div>
-        <div>
-            <label>Date of death <span>(Optional)</span>: </label>
-            <span><input type="date" th:field="${artist.deathDate}"></span>
-            <span th:if="${#fields.hasErrors('deathDate')}" th:errors="*{deathDate}" >...</span>
-        </div>
-        <div>
-            <label>Artist Picture:</label>
-            <span><input required type="file" name="file"></span>
-        </div>
--->
         <div>
             <span><button type="submit">Confirm</button></span>
         </div>

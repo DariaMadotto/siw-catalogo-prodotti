@@ -1,37 +1,48 @@
-body{
+
+body {
+    background: linear-gradient(144deg, var(--purple), var(--bluenavy));
     padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--cream);
 }
 
-img{
-    max-width: 40%;
+img {
+    max-width: 100%;
     border: none;
     border-radius: 16px;
     box-shadow: 3px 2px 4px var(--jet-black);
+    margin-top: 2rem;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 2rem;
 }
 
-.container > div{
-    margin: 0 25px;
+.container > div {
+    margin: 0 1rem;
+    text-align: center;
 }
 
-.container > div > div{
+.container > div > div {
     margin-top: 10px;
-    font-size: larger;
+    font-size: 1rem;
 }
 
 @media screen and (max-width: 900px) {
-    body{
+    body {
         padding: 4rem 1.5rem;
     }
 }
 
 @media screen and (max-width: 600px) {
-    body{
+    body {
         padding: 3.7rem 0.6rem;
     }
 }

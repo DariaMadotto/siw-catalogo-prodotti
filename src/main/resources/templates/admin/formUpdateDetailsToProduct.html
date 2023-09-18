@@ -17,13 +17,17 @@
     </nav>
 
 	<!--QUESTA DOVREBBE RIMANDARE CON TH:ACTION AL METODO NEL CONTROLLER CON QUELL'URL MAPPATO POST-->'
-    <form th:action="@{/admin/saveDetailsToProduct}" method="post" enctype="multipart/form-data" th:object="${product}">
+    <form th:action="@{/admin/uploadProduct1}" method="post" th:object="${product}">
         <div th:if="${#fields.hasGlobalErrors()}">
             <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
         </div>
         <div>
             <label>Product's name:</label>
             <span><input type="text" placeholder="Product name" th:field="${product.name}"></span>
+        </div>
+        <div>
+            <label>Product's code:</label>
+            <span><input required type="number" placeholder="Product code" th:field="${product.code}"></span>
         </div>
 		 <div>
             <label>Product's price:</label>

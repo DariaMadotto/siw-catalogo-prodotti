@@ -1,6 +1,5 @@
 package it.uniroma3.siw.service;
 
-import java.io.IOException;
 import java.util.Set;
 
 import it.uniroma3.siw.model.Product;
@@ -12,7 +11,6 @@ import it.uniroma3.siw.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.transaction.Transactional;
 
@@ -24,18 +22,6 @@ public class ProductService {
 
     @Autowired
     ProductRepository productRepository;
-
-//    @Autowired
-//    ImageRepository imageRepository;
-
-//    @Transactional
-//    public void createMovie(Movie movie, MultipartFile image) throws IOException {
-//        Image movieImg = new Image(image.getBytes());
-//        this.imageRepository.save(movieImg);
-//
-//        movie.setImage(movieImg);
-//        this.productRepository.save(movie);
-//    }
 
     @Transactional
     public void createProduct(Product product){
@@ -53,9 +39,10 @@ public class ProductService {
             // Aggiorna i dettagli del prodotto con i nuovi valori
             existingProduct.setName(product.getName());
             existingProduct.setPrice(product.getPrice());
+            existingProduct.setCode(product.getCode());
 
             // Salva le modifiche nel repository
-            productRepository.save(existingProduct);
+            productRepository.save(product);
         }
     }
     

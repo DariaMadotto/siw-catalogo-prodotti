@@ -1,8 +1,9 @@
-body{
+
+body {
     padding-top: 3rem;
 }
 
-nav{
+nav {
     position: fixed;
     width: 100%;
     top: 0;
@@ -13,16 +14,16 @@ nav{
     align-items: center;
     padding: 10px 25px;
     margin: 0px;
-    background: linear-gradient(110deg, var(--purple), var(--bluenavy));
+    background: linear-gradient(110deg, #ff4081, #ff66a3); 
 }
 
-nav *{
-    color: var(--cream)
+nav * {
+    color: #ffffff; 
 }
 
-nav > a{
+nav > a {
     position: relative;
-    height: 100%;   
+    height: 100%;
     font-size: 1.35rem;
     text-decoration: none;
     transition: 0.3s ease-in-out;
@@ -36,16 +37,16 @@ nav > .log::before {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--cream);
+    background-color: #ffffff; 
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
-  }
+}
 
 nav > .log:hover::before {
     transform: scaleX(1);
-  }
+}
 
-#siw-nav-title{
+#siw-nav-title {
     text-decoration: none;
     text-decoration-line: none;
 }

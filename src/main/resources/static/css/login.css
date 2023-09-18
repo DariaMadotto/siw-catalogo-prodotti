@@ -1,19 +1,28 @@
-body{
+
+body {
     background: linear-gradient(144deg, var(--purple), var(--bluenavy));
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    position: relative; 
 }
 
-h1{
-    margin: 25px 0;
+h1 {
+    position: absolute; 
+    top: 1rem; 
+    left: 50%;
+    transform: translateX(-50%); 
     color: var(--cream);
+    font-size: 2rem;
 }
 
-.login{
-    background-color: var(--lavander);
+
+.login {
+    background-color: var(--colore-sfondo);
     min-width: 200px;
     width: 80%;
     max-width: 600px;
@@ -23,85 +32,83 @@ h1{
     border: none;
     border-radius: 25px;
     text-align: center;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 3px 3px 8px var(--jet-black);
+    box-shadow: 3px 3px 8px var(--colore-testo);
+    height: auto; 
 }
 
-.login form{
+
+.login form {
     width: 100%;
 }
 
-.login > form > div{
+.login > form > div {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px;
 }
 
-
-.login > form > *{
+.login > form > * {
     width: 100%;
     margin: 20px auto;
 }
 
-.login h2{
+.login h2 {
     margin-bottom: 1.5rem;
+    font-size: 1.5rem; 
 }
 
-.login input{
+.login input {
     width: 100%;
     padding: 15px 14px;
     margin: 0 15px;
     border-radius: 12px;
     border: none;
-    box-shadow: 2px 2px 4px var(--jet-black);
+    box-shadow: 2px 2px 4px var(--colore-testo); 
     font-size: 1.13rem;
-    background-color: var(--cream);
+    background-color: var(--colore-input); 
 }
 
-.login input:focus{
-    outline: 2px solid var(--purple);
+.login input:focus {
+    outline: 2px solid var(--colore-purple); 
 }
 
-.login button{
+.login button {
     padding: 20px 10px;
-    border-radius: 12px;    
+    border-radius: 12px;
     border: none;
-    background: linear-gradient(150deg, var(--purple), var(--bluenavy));
+    background: linear-gradient(150deg, var(--colore-purple), var(--colore-bluenavy));
     transition: 0.5s ease-in-out;
-    width: min(250px,70%);
+    width: min(250px, 70%);
     margin: 0;
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--cream);
+    color: var(--colore-testo-pulsante);
     margin-bottom: 15px;
+    height: 3rem; 
 }
 
-.login button:hover{
-    box-shadow: 2px 2px 5px var(--jet-black);
+
+.login button:hover {
+    box-shadow: 2px 2px 5px var(--colore-testo); 
     cursor: pointer;
-    
 }
 
-svg{
-    height:40px;
+svg {
+    height: 40px;
     margin: 7px;
 }
 
-@media (max-width:400px){
-    :root{
+@media (max-width: 400px) {
+    :root {
         font-size: .9em;
     }
 }
 
-
-/* 
-L'AUTOCOMPLETE DEI BROWSER MODIFICA LO STYLING DEGLI INPUT
-questo è un modo per mantenerlo identico
-*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
@@ -111,7 +118,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    border: 2px solid var(--purple);
-    -webkit-text-fill-color: var(--jet-black);
-    -webkit-box-shadow: 0 0 0px 1000px var(--cream) inset;
+    border: 2px solid var(--colore-purple);
+    -webkit-text-fill-color: var(--colore-testo);
+    -webkit-box-shadow: 0 0 0px 1000px var(--colore-input) inset;
 }

@@ -90,6 +90,4 @@ public class Supplier {
 		Supplier other = (Supplier) obj;
 		return Objects.equals(email, other.email) && Objects.equals(iva, other.iva) && Objects.equals(name, other.name);
 	}
-
-
 }

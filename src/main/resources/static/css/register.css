@@ -1,5 +1,6 @@
-body{
-    background: linear-gradient(144deg, var(--purple), var(--bluenavy));
+
+body {
+    background: linear-gradient(144deg, var(--colore-purple), var(--colore-bluenavy));
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -7,74 +8,73 @@ body{
     align-items: center;
 }
 
-form{
-    background-color: var(--lavander);
+form {
+    background-color: var(--colore-lavander);
     min-width: 200px;
     width: 80%;
     max-width: 600px;
-    padding: 2rem .5rem;
+    padding: 2rem 0.5rem;
     margin: 1rem;
     margin-top: 2rem;
     margin-bottom: 10%;
     border: none;
     border-radius: 25px;
     text-align: center;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 3px 3px 8px var(--jet-black);
+    box-shadow: 3px 3px 8px var(--colore-jet-black);
 }
-form > div{
+
+form > div {
     width: 90%;
 }
 
-form > div > span{
+form > div > span {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-self: center;
-
     padding: 5px;
     margin: 20px auto;
 }
 
-input{
+input {
     width: 100%;
     padding: 15px 14px;
     margin: 0 15px;
     border-radius: 12px;
     border: none;
-    box-shadow: 2px 2px 4px var(--jet-black);
+    box-shadow: 2px 2px 4px var(--colore-jet-black);
     font-size: 1.13rem;
-    background-color: var(--cream);
+    background-color: var(--colore-cream);
 }
 
-input:focus{
-    outline: 2px solid var(--purple);
+input:focus {
+    outline: 2px solid var(--colore-purple);
 }
 
-button{
+button {
     padding: 20px 10px;
-    border-radius: 12px;    
+    border-radius: 12px;
     border: none;
-    background: linear-gradient(150deg, var(--purple), var(--bluenavy));
+    background: linear-gradient(150deg, var(--colore-purple), var(--colore-bluenavy));
     transition: 0.5s ease-in-out;
-    width: min(250px,70%);
+    width: min(250px, 70%);
     margin: 0;
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--cream);
+    color: var(--colore-cream);
     margin-bottom: 15px;
 }
 
-button:hover{
-    box-shadow: 2px 2px 5px var(--jet-black);
+button:hover {
+    box-shadow: 2px 2px 5px var(--colore-jet-black);
     cursor: pointer;
-    
 }
 
-svg{
-    height:40px;
+svg {
+    height: 40px;
     margin: 7px;
 }

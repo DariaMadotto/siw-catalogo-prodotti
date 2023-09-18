@@ -102,14 +102,6 @@ public class GlobalController {
 		model.addAttribute("credentials", new Credentials());
 		return "formRegister.html";
 	}
-
-	/* ridondante, ma viene usata anche per la admin dashboard */
-//	@GetMapping("/products")
-//	public String products(Model model){
-//
-//		model.addAttribute("products", this.productRepository.findAll());
-//		return "index.html";
-//	}
 	
 	@GetMapping("/products")
 	public String products(Model model){
@@ -149,9 +141,7 @@ public class GlobalController {
 		model.addAttribute("userDetails", this.userService.getUserDetails());
 
 		Supplier supplier = this.supplierRepository.findById(id).get();
-//		Image profilePic = supplier.getProfilePicture(); //è una string rappresentante l'immagine in base64
-		model.addAttribute("supplier", this.supplierRepository.findById(id).get());
-//		model.addAttribute("profilePic", profilePic);
+		model.addAttribute("supplier", supplier);
 
 		return "supplier.html";
 	}
@@ -163,10 +153,8 @@ public class GlobalController {
 		model.addAttribute("userDetails", userDetails);
 
 		Product product = this.productRepository.findById(id).get();
-//		Image image = product.getImage();
 
 		model.addAttribute("product", product);
-//		model.addAttribute("image", image);
 
 		/* Gestione della review */
 		if (userDetails != null){
@@ -209,7 +197,6 @@ public class GlobalController {
 		this.productRepository.save(product);
 
 		model.addAttribute("product", product);
-//		model.addAttribute("image", product.getImage());
 
 		if(this.credentialsService.getCredentials(username).getRole().equals(Credentials.ADMIN_ROLE)){
 			model.addAttribute("admin", true);
@@ -228,7 +215,6 @@ public class GlobalController {
 		this.productRepository.save(product);
 
 		model.addAttribute("product", product);
-//		model.addAttribute("image", product.getImage());
 
 		if (userDetails != null){
 			if(this.credentialsService.getCredentials(userDetails.getUsername()) !=null ){
