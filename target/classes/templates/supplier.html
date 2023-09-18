@@ -17,19 +17,11 @@
         <a th:unless="${userDetails}" href="/login" class="log">SIGN IN</a>
     </nav>
 
-    <!-- todo frontend-->
     <div class="container">
        <div>
             <h1 th:text="${ supplier.name + ' ' + supplier.surname + ' ' + supplier.iva }" >..</h1>
        </div>
-<!--             <div th:text="${'Date of birth: '+#temporals.format(artist.birthDate, 'dd-MM-yyyy')}"></div>  
-            <div th:if="${artist.deathDate != null}" th:text="${'Date of death: '+  #temporals.format(artist.deathDate, 'dd-MM-yyyy')}"></div>
-        </div>
-        <img th:src="@{'data:image/*;base64,'+${profilePic.base64Image}}" alt="Artist image">
-
-    
--->
-	</div>    <!-- boh -->
+	</div>    
     
 </body>
 </html>

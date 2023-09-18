@@ -1,22 +1,41 @@
-body{
+
+body {
+    background: linear-gradient(144deg, var(--colore-purple), var(--colore-bluenavy));
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
 }
 
-.products{
+.products {
     margin: 2rem;
+    background-color: var(--colore-sfondo); 
+    padding: 2rem;
+    border: 1px solid var(--colore-testo); 
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 3px 3px 8px var(--colore-testo); 
 }
 
-.product-list{
+.product-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.product{
-    font-size: 18px;
-    margin: 0.8rem;
+.product {
+    font-size: 1.2rem; 
+    margin: 1rem; 
+    background-color: var(--colore-sfondo); 
+    padding: 1rem; 
+    border: 1px solid var(--colore-testo); 
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px var(--colore-testo);
+    color: var(--colore-testo); 
+    width: 70%; 
+    max-width: 400px; 
 }

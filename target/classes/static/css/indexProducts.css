@@ -1,22 +1,22 @@
-h2{
+
+h2 {
     font-size: 1.7rem;
     margin-bottom: 1em;
-    font-size: 1.7em;
 }
 
-button{     
-    font-size: 1.5em;
-    padding: .5rem;
+button {
+    font-size: 1.5rem; 
+    padding: 1rem; 
     margin: 2rem;
     width: 16%;
-    border: 2px solid #323232;
+    border: 2px solid var(--colore-testo); 
     border-radius: 15px;
-    background-color: rgb(218, 85, 85);
+    background-color: var(--colore-purple); 
     transition: 0.5s ease-in-out;
 }
 
-button:hover{
-    background-color: rgb(250, 48, 48);
-    box-shadow: 2px 1px 3px #323232;
+button:hover {
+    background-color: var(--colore-pulsante-secondario); 
+    box-shadow: 2px 1px 3px var(--colore-testo); 
     cursor: pointer;
 }

@@ -17,8 +17,7 @@
   </nav>
   <div class="container">
     <h2 th:text="${'Product: ' + product.name + ' (' +product.code + ')'}"></h2>
-	  <h4>Name: <a th:href="@{'/admin/editDetailsToProduct/' + ${product.id}}"><button>EDIT NAME</button></a></h4>
-      <h4>Price: <a th:href="@{'/admin/editDetailsToProduct/' + ${product.id}}"><button>EDIT PRICE</button></a></h4>
+	  <h4>Edit: <a th:href="@{'/admin/editDetailsToProduct/' + ${product.id}}"><button>EDIT DETAILS</button></a></h4>
 
     <div th:if="${product.suppliers == NULL or product.suppliers.isEmpty()}">
       No suppliers currently set

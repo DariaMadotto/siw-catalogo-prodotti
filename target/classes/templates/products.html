@@ -21,7 +21,6 @@
     <div class="products">
         <a class="card" th:each="product : ${products}" th:href="@{'/product/' + ${product.id}}" >
             <div class="card_content">
-                <!--<img th:src="@{'data:image/*;base64,' + ${artist.getProfilePicture.base64Image}}" alt="artist picture">-->
                 <div class="card-text">
                     <div class="card-p" th:text="${product.name +' '+ product.code +' '+ product.price }">Pasta 1234 5</div>
                 </div>
